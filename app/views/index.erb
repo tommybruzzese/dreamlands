@@ -1,0 +1,21 @@
+<header id="header_bg"><script src="jquery.js"></script>
+  <p id="hello"> <% if session[:user_id] %>
+    Hello, <%= current_user.name %>.
+    <% else %>
+      Hello.
+    <%end%>
+  </p>
+  <p id="welcome"> welcome to the dreamlands: a place of starry reveries. </p>
+
+  <ul id="home_buttons">
+    <li><a class="submit" id="journalize" href='/input'> Journalize </a></li>
+    <li><a class="submit" id="revisit" href='/results'> Entries </a></li>
+  </ul> 
+  
+  <h1 class="links"><%= Time.now.strftime("%B %d, %Y") %><% if session[:user_id] %>
+    <a id="name"> Currently signed in as: <%= current_user.username %>.</a>
+    <% else %>
+      <a id="log" href='/log_in'>Log In</a> | <a id="sign" href='/sign_up'>Sign Up</a></h1>
+    <%end%>
+
+</header>
