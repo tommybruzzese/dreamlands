@@ -1,0 +1,20 @@
+<header id="header_bg"><script src="jquery.js"></script>
+  <p id="hello"> <% if session[:user_id] %>
+    Hello, <%= current_user.name %>.
+    <% else %>
+      Sorry,
+    <%end%>
+  </p>
+  <p id="welcome"> please sign up with an account first to join the Dreamlands. </p>
+
+  <ul id="home_buttons2">
+    <li><a class="submit" id="signup2" href='/sign_up'>Sign Up</a></li>
+  </ul> 
+  
+  <h1 class="links"><%= Time.now.strftime("%B %d, %Y") %><% if session[:user_id] %>
+    <a id="name"> Currently signed in as: <%= current_user.username %>.</a> | <a id="sign" href='/sign_out'>Log Out</a>
+    <% else %>
+      <a id="sign2" href='/sign_up'>Sign Up</a></h1>
+    <%end%>
+
+</header>

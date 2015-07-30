@@ -34,11 +34,30 @@ class ApplicationController < Sinatra::Base
   
   
   get '/input' do
+    if session[:user_id]
     erb :input
+    else 
+      erb :no_account2
+    end
   end
   
    get '/sign_up' do
     erb :sign_up
+  end
+  
+  get '/log_in' do
+    erb :log_in
+  end
+  
+  get '/results' do
+    user = User.find(session[:user_id])
+    user.dreams.each do |dream|
+      puts dream.description
+    end
+      
+#     @date = @dreams.date
+#     @people = @dreams.people
+    erb :results
   end
   
   post '/sign_up' do 
@@ -47,16 +66,35 @@ class ApplicationController < Sinatra::Base
     if @user
       session[:user_id]= @user.id
       puts session[:user_id]
-      redirect '/input'
+      redirect '/'
     else
     end
     redirect '/'
   end
   
   post '/results' do
-    Dream.create(:date => params[:date], :description => params[:description], :emotion => params[:emotion], :people => params[:people], :keywords => params[:keywords], :interpretation => params[:interpretation])
-    @dreams = Dream.all
-    erb :results
+    Dream.create(:date => params[:date], :description => params[:description], :emotion => params[:emotion], :people => params[:people], :keywords => params[:keywords], :interpretation => params[:interpretation], :user_id => session[:user_id])
+    @dreams = Dream.find_by(:user => session[:user_id])
+      @date = @dreams.date
+      @people = @dreams.people
+      erb :results
+  end
+  
+  post '/sign_in' do
+    @user = User.find_by({:username => params[:username], :password_hash => params[:password]})
+    if @user
+      session[:user_id]= @user.id
+      puts session[:user_id]
+      redirect '/'
+    else
+    end
+    erb :no_account
+  end
+  
+  get '/sign_out' do
+    session[:user_id] = nil
+    session[:error]
+    redirect '/'
   end
 
 end

@@ -1,5 +1,10 @@
-<%= @dreams %>
-
-
-
-<a href='/'> GO HOME. </a>
+<h1><% %></h1>
+<%=  %>
+<% user = User.find(session[:user_id]) %>
+<%    user.dreams.each do |dream| %>
+  <%= dream.date %>
+  <%= dream.description %>
+  <%= dream.people %>
+  <br>
+  
+  <%  end %>

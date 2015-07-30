@@ -1,10 +1,20 @@
-<h1> DREAMLANDS </h1>
+<nav>
+  <li><a href='/' title="Go home."><h1> DREAMLANDS </h1></a>
+    <h2> SIGN UP PAGE </h2>
+  </li>
+  <% if session[:user_id] %>
+  <p> Signed in as: <%= current_user.name %> | <a href='/sign_out'> Log Out </p>
+    <%elsif !@signin_page%>
+    <%end%>
+</nav>
 
 
 <form id="user_tweet" action="/sign_up" method="POST">
-  <p>First Name: <input class="text" type="text" name="name"></p>
-  <p>Username: <input class="text" type="text" name="username"></p>
-  <p>Password: <input class="text" type="text" name="password"></p>
+  <p>First Name: <br> <input  style="width:40%; height:1.5em;" class="text" type="text" name="name"></p>
+  <br>
+  <p>Username: <br><input style="width:40%; height:1.5em;" class="text" type="text" name="username"></p>
+  <br>
+  <p>Password: <br> <input style="width:40%; height:1.5em;" class="text" type="text" name="password"></p>
   <br>
   <input type="submit" class="submit" class="btn btn-primary">
 </form>
