@@ -1,13 +1,15 @@
-<h1 id="hello2"> Your Dream. </h1>
+<h1 id="hello2">Your Dream. </h1>
 
 <form id="input" action='/results' method="POST">
   <li id="input1"><p> Date: <br><input class="input_text" style="width:80%; height:3em;" type="text" name="date" required value="<%= Time.now.strftime("%B %d, %Y") %>"> </p> <br>
-  <p> Description: <br><input class="input_text" style="width:80%; height:3em;" type="text" name="description"  maxlength="140" placeholder="140 Character Max" required></p> <br>
+  <p> Description: <br><input class="input_text" style="width:80%; height:3em;" type="text" name="description"  maxlength="140" placeholder="140 Character Max" required value="I dreamed about"></p> <br>
   <p> Emotion(s):<br> <input class="input_text" style="width:80%; height:3em;" type="text" name="emotion" required></p></li>
   <li id="input2"><p> Who was it with/about?: <br><input class="input_text" style="width:80%; height:3em;" type="text" name="people" required></p><br> 
   <p> Keywords (separated by commas): <br><input  class="input_text" style="width:80%; height:3em;" type="text" name="keywords" required></p> <br>
   <p> Interpretation (optional): <br><input class="input_text" style="width:80%; height:3em;" type="text" name="interpretation"></p> </li><br>
   <br>
   <br>
-  <input type="submit" class="submit" class="btn btn-primary">   
+  <input style="margin-top: 2%;" type="submit" class="submit" class="btn btn-primary">  
+  <br>
+  <a href='/' style="text-decoration: none;"><p style="font: italic .75em 'Oswald'; color: rgba(77, 151, 204,.9); margin-top: 1%;"> GO HOME. </p></a>
 </form>

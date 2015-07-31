@@ -1,6 +1,6 @@
 <nav>
   <li><a href='/' title="Go home."><h1> DREAMLANDS </h1></a>
-    <h2> LOG IN PAGE </h2>
+    <h2> Log in page </h2>
   </li>
   <% if session[:user_id] %>
   <p> Signed in as: <%= current_user.name %> | <a href='/sign_out'> Log Out </p>
@@ -12,7 +12,11 @@
 <form id="user_tweet" action="/sign_in" method="POST">
   <p>Username: <br><input style="width:40%; height:1.5em;" class="text" type="text" name="username"></p>
   <br>
-  <p>Password: <br> <input style="width:40%; height:1.5em;" class="text" type="text" name="password"></p>
+  <p>Password: <br> <input style="width:40%; height:1.5em;" class="text" type="password" name="password"></p>
   <br>
   <input type="submit" class="submit" class="btn btn-primary">
 </form>
+
+<footer>
+  <h1> Dreamlands created by: <br> Tommy Bruzzese </h1>
+</footer>

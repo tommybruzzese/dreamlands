@@ -74,10 +74,13 @@ class ApplicationController < Sinatra::Base
   
   post '/results' do
     Dream.create(:date => params[:date], :description => params[:description], :emotion => params[:emotion], :people => params[:people], :keywords => params[:keywords], :interpretation => params[:interpretation], :user_id => session[:user_id])
-    @dreams = Dream.find_by(:user => session[:user_id])
-      @date = @dreams.date
-      @people = @dreams.people
-      erb :results
+    user = User.find(session[:user_id])
+    redirect '/results'
+  end
+  
+  post '/delete' do
+    Dream.destroy(params[:deletion])
+    redirect '/results'
   end
   
   post '/sign_in' do

@@ -1,6 +1,6 @@
 <nav>
   <li><a href='/' title="Go home."><h1> DREAMLANDS </h1></a>
-    <h2> SIGN UP PAGE </h2>
+    <h2> Sign up page </h2>
   </li>
   <% if session[:user_id] %>
   <p> Signed in as: <%= current_user.name %> | <a href='/sign_out'> Log Out </p>
@@ -10,11 +10,12 @@
 
 
 <form id="user_tweet" action="/sign_up" method="POST">
-  <p>First Name: <br> <input  style="width:40%; height:1.5em;" class="text" type="text" name="name"></p>
-  <br>
-  <p>Username: <br><input style="width:40%; height:1.5em;" class="text" type="text" name="username"></p>
-  <br>
-  <p>Password: <br> <input style="width:40%; height:1.5em;" class="text" type="text" name="password"></p>
-  <br>
-  <input type="submit" class="submit" class="btn btn-primary">
+  <p>First Name: <br> <input  style="width:40%; height:2em; margin-bottom: 1.5%;" class="text" type="text" name="name" required placeholder="Tommy"></p>
+  <p>Username: <br><input style="width:40%; height:2em; margin-bottom: 1.5%;" class="text" type="text" name="username" required placeholder="tommyb7"></p>
+  <p>Password: <br> <input style="width:40%; height:2em;" class="text" type="password" name="password" required placeholder="12345"></p>
+  <input id="submit2" type="submit" class="submit" class="btn btn-primary">
 </form>
+
+<footer>
+  <h1> Dreamlands created by: <br> Tommy Bruzzese </h1>
+</footer>

@@ -1,10 +1,15 @@
-<h1><% %></h1>
-<%=  %>
-<% user = User.find(session[:user_id]) %>
-<%    user.dreams.each do |dream| %>
-  <%= dream.date %>
-  <%= dream.description %>
-  <%= dream.people %>
+<body style="overflow: scroll;">
+<a id="dream_feed"><% user = User.find(session[:user_id]) %>
+  <%    user.dreams.reverse.each do |dream| %>
+  <% @dream_to_delete = dream.id %>
+  <h1 id="date" style="padding-top: 5%;"><%= dream.date %></h1>
   <br>
-  
-  <%  end %>
+  <h2 id="dream">With <%= dream.people %>, <%= dream.description %>.
+    Because of this dream, I felt <%= dream.emotion.downcase %><br>Keywords: <%= dream.keywords %>.</h2>. 
+  <br>
+  <form action="/delete" method="POST">
+    <input type="submit" name="deletion" value="<%=dream.id%>" style="border: solid 2px black; height: 3em; width: 2.5vw; background: url('images/trash.png') no-repeat center; color: rgba(0,0,0,.0)">
+  </form>
+<%  end %>
+</a>
+</body>
