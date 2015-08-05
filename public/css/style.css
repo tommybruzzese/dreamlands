@@ -7,7 +7,7 @@ body {
 
 nav {
   width: 100vw;
-  background: linear-gradient( 180deg, rgba(57, 131, 184,.9), rgba(77, 151, 204,.6));
+  background: linear-gradient(180deg, rgba(57, 131, 184,.9), rgba(77, 151, 204,.6));
   background-size: cover;
   padding: 5% 0;
 /*   opacity: .6; */
@@ -18,13 +18,17 @@ nav li {
   display: inline;
   color: white;
 }
-nav h1 {
+nav h1, #dreamlands2 {
   color: white;
   font: bold 4em 'Oswald';
   margin: -2% auto;
   margin-left: 5%;
   float: left;
   text-shadow: 1px 1px 0px rgba(0,0,0,.5);
+}
+
+#dreamlands2 {
+  margin-top: 2%;
 }
 nav h2 {
   color: white;
@@ -55,14 +59,15 @@ nav h2 {
 }
 
 #journalize2:hover, #results2:hover {
-  color: rgb(180, 180, 180);
+  color: rgb(160, 160, 160);
 }
 
 
 #header_bg {
   margin: 0;
   padding-top: 9%;
-  background: url('../images/sunset.jpg') no-repeat center;
+  background: linear-gradient( rgba(140, 109, 174,0.6), transparent 35%),
+              url('../images/sunset.jpg') no-repeat center;
   background-size: cover;
   opacity: .7;
   height: 100vh;
@@ -166,21 +171,37 @@ nav h2 {
   color: white;
   font: 2em 'Oswald', serif;
 }
+
 #dream_feed {
   text-align: center;
+  display: block;
 }
 
 #date {
-  font: bold 2em 'Oswald', sans-serif;
+  font: bold 2.5em 'Oswald', sans-serif;
 }
 #dream {
-  font: 200 1.5em 'Oswald', serif;
+  font: 200 2em 'Oswald', serif;
+  border: solid 2px black;
+  padding: 1%;
+  margin: 0 25%;
 }
 
-#log{
-  float: center;
-  margin-left: 74%;
-  margin-right: 2%;
+.signed_in{
+  float: right;
+/*   padding-left: 10%;
+  padding-right: 2%; */
+  min-width: 40%;
+  margin-right: 1%;
+  color: white;
+  text-decoration: none;
+}
+.signed_in2{
+  float: right;
+/*   padding-left: 10%;
+  padding-right: 2%; */
+  min-width: 15%;
+  margin-right: 3%;
   color: white;
   text-decoration: none;
 }
@@ -192,18 +213,22 @@ nav h2 {
   color: white;
   text-decoration: none;
 }
-#sign{
-  float: center;
-  margin-left: 2%;
+#sign, #sign3{
+  margin-left: 6%;
   color: white;
   text-decoration: none;
 }
-#name{
-  float: center;
-  margin-left: 50%;
+#sign3{
+  margin-left: 2%;
+}
+#name, #log{
+  margin-left: 0;
   margin-right: 2%;
   color: white;
   text-decoration: none;
+}
+#log {
+  margin-right: 6%;
 }
 
 #input1, #input2 {
@@ -213,7 +238,7 @@ nav h2 {
   width: 50%;
 }
 
-#log:hover, #sign:hover, #sign2:hover {
+#log:hover, #sign:hover, #sign2:hover, #sign3:hover {
   color: rgb(180, 180, 180);
 }
 

@@ -50,14 +50,12 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/results' do
-    user = User.find(session[:user_id])
-    user.dreams.each do |dream|
-      puts dream.description
+    if session[:user_id] != 0
+      user = User.find(session[:user_id])
+      erb :results
+    else
+      erb :no_account2
     end
-      
-#     @date = @dreams.date
-#     @people = @dreams.people
-    erb :results
   end
   
   post '/sign_up' do 
